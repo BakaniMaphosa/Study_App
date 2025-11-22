@@ -1,0 +1,18 @@
+return {
+          "Title" : self.title,
+          "Time Stamp" : self.timeStamp,
+          "Note Review Count" : self.note_ReviewCount,
+          "Note Streak" : self.note_Streak,
+          "Description" : self.description,
+          "Memorisation Difficulty" : self.memorisation_Difficulty,
+          "Note Tags" : self.note_Tags,
+
+          "noteContents": None,
+          "pinned": False,
+          "noteID": None,
+          "word_count": 0,
+          "avg_ReadTime": 0.0,
+          "ai_Summery": None,
+          "backup_Count": 0
+ 
+      }
