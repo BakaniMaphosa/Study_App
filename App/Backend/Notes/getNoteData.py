@@ -1,6 +1,6 @@
 from Backend.db.Connection import connection
 from sqlalchemy import Table,MetaData
-class openNote:
+class getNoteData:
     
     def __init__(self,NoteID):
         conn = connection()

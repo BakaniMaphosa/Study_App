@@ -1,6 +1,6 @@
 import datetime
 from Backend.Notes.noteTemplate import noteTemplate
-from App.Backend.Notes.getNoteData import openNote
+from Backend.Notes.NoteManager.DisplayNotes import DisplayNotes
 
 # new_note = noteTemplate(
 #     title="Electromagnetism",
@@ -15,5 +15,10 @@ from App.Backend.Notes.getNoteData import openNote
 
 # print("Inserted with ID:", new_id)
 
-x = openNote(1)
-print(x.getData())
+x = DisplayNotes()
+#print(x.currentPage)
+#x.nextPage()
+#print(x.currentPage)
+#x.nextPage()
+#print(x.currentPage)
+print(x.getDisplayNotes())

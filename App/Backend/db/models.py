@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String,Float, DateTime, Boolean, Text
+from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String,Float, DateTime, Boolean, Text, ForeignKey
 
 
 DB_PATH = "/Users/bakani/Desktop/Study_App/App/Backend/db/Notes.db"
@@ -29,7 +29,7 @@ user_NotesData = Table(
 user_NotesMetaData = Table(
  "Data_StudyNotes",  #all heavy data will be stored here, large bytes of text, paths, etc
  meta,
- Column('NoteID',Integer,primary_key=True),
+ Column('NoteID',Integer,ForeignKey('Meta_StudyNotes.NoteID'),primary_key=True),
  Column('NoteContent',Text),
  Column('Images',String), #stores the path of the image in the database, and the actuall image in the project folder
  Column('Graphs',String) #stores json form of dictionary data
