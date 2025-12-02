@@ -1,5 +1,10 @@
+:root{
+     font-family: "DynaPuff", system-ui;
+  
+}
+
 body{
-    background-color: rgb(182, 182, 182);
+    background-color: rgb(255, 255, 255);
 }
 
 .controls{
@@ -11,10 +16,10 @@ body{
 .StudyTools{
     width: 100%;
     height: 25vh;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(220, 220, 220);
     display: flex;
     flex-direction: row;
-    gap: 1vh;
+    gap: 0.5vh;
     justify-content:flex-start;
     align-items: center;
     overflow-x: auto;
@@ -24,14 +29,26 @@ body{
 
 #toggleStudyTools{
     position: absolute;
-    width: 85px;
+    width: 105px;
     height: 13%;
     right:38.5%;
-    background-color: rgb(255, 255, 255);
+    background-color:  rgb(220, 220, 220);
     z-index: 1;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
-    
+    display: flex;
+    align-items: center;
+    gap: 0.1vh;
+}
+
+#StudyToolsDropdown{
+    font-size: 14px;
+    margin-left: 0.1vh;
+}
+
+#PencilIcon{
+    height: 23px;
+    width: 23px;
 }
 
 .tools{
@@ -41,6 +58,7 @@ body{
    background-color: rgb(255, 255, 255);
    border-right: 0.1px solid rgb(136, 136, 136);
    display: flex;
+   border-radius: 18px;
    flex-direction: column;
    gap:0.7vh;
    overflow-y: auto;
@@ -51,9 +69,6 @@ body{
     width:90%;   /*95%*/
     height:11.5%;
     background-color: rgb(255, 255, 255);
-    /* font-family: "Inter", sans-serif; */
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
     font-size: 22px;
     margin-left: 1%;
     margin-top: 1%;
@@ -77,3 +92,50 @@ body{
     /* background-color: brown; */
 }
 
+.threeSlider {
+    position: relative;
+    width: 20vh;
+    height: 3vh;
+    background: #eee;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1vh;
+    margin-left: -40px;
+}
+
+.option {
+    width: 33%;
+    text-align: center;
+    z-index: 2;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.thumb {
+    position: absolute;
+    width: 33%;
+    height: 100%;
+    background: white;
+    border-radius: 999px;
+    left: 0;
+    transition: 0.2s;
+}
+
+.numberControl{
+   display: flex;
+   flex-direction: row;
+   gap: 2px;
+}
+
+#increase, #decrease{
+    border: none;
+    /*background-color: rgb(255, 255, 255);*/
+    font-size: 20px;
+}
+
+#numInput{
+    height: 20px;
+    
+}

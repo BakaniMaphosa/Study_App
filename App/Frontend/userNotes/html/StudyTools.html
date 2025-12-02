@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/App/Frontend/userNotes/css/StudyTools.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+
+     <link rel="stylesheet" href="/App/Frontend/userNotes/css/StudyTools.css">
     <title>User Studys</title>
 </head>
 <body>
@@ -15,11 +19,17 @@
         <div class="tool"><div class = "ToolName" id="UnderlineText">Underline</div></div>
         <div class="tool">
              <div class = "ToolName" id="HighlightText">Highlight</div>
-             <div class="ToolQuickAction" id="HighlightQuckAction">QA</div>
+             <div class="ToolQuickAction" id="HighlightQuckAction"><input type="color" id="colorPicker"></div>
         </div>
-        <div class="tool">
+        <div class="tool"> 
              <div class = "ToolName" id="Font-Size">Font-size</div>
-             <div class="ToolQuickAction" id="Font-SizeQuickAction">QA</div>
+             <div class="ToolQuickAction" id="Font-SizeQuickAction">
+                 <div class="numberControl">
+                   <button class="numBtn" id="decrease">−</button>
+                   <input type="number" id="numInput" value="17" min="1" max="200">
+                   <button class="numBtn" id="increase">+</button>
+                </div>
+             </div>
         </div>
         <div class="tool">
              <div class = "ToolName" id="Font-family">Font-family</div>
@@ -29,17 +39,30 @@
      <div class="tools">
         <div class="tool">
             <div class = "ToolName" id="ForegroundText">Foreground</div>
-            <div class="ToolQuickAction" id="ForegroundQuckAction">QA</div>  
+            <div class="ToolQuickAction" id="ForegroundQuckAction"><input type="color" id="colorPicker"></div>  
         </div> 
         <div class="tool">
-            <div class = "ToolName" id="HeaderText">Headers</div>
-            <div class="ToolQuickAction" id="HeaderQuckAction">QA</div>
+            <div class = "ToolName" id="HeaderText">Header</div>
+            <div class="ToolQuickAction" id="HeaderQuckAction">
+                <div class="numberControl">
+                  <button class="numBtn" id="decrease">−</button>
+                  <input type="number" id="numInput" value="1" min="1" max="6">
+                  <button class="numBtn" id="increase">+</button>
+                </div>
+            </div>
         </div>
           <div class="tool"><div class="ToolName">Checkbox list</div></div>
           <div class="tool"><div class="ToolName">Numbered list</div></div>
         <div class="tool">
             <div class = "ToolName" id="AlignText">Align-text</div>
-            <div class="ToolQuickAction" id="AlignTextQuckAction">QA</div>       
+            <div class="ToolQuickAction" id="AlignTextQuckAction">
+               <div class="threeSlider">
+                  <div class="thumb"></div>
+                  <div class="option" data-align="left">Left</div>
+                  <div class="option" data-align="center">Center</div>
+                  <div class="option" data-align="right">Right</div>
+               </div>
+            </div>       
         </div>
           <div class="tool"><div class="ToolName">Block-divider</div></div>
    
@@ -69,9 +92,13 @@
 
     </div>
     <div id="toggleStudyTools">
-        <div id="StudyToolsDropdown"></div>
-        <div id="Pencil"></div>
+        <div id="StudyToolsDropdown">StudyTools</div>
+        <div class="Icon">
+            <img id = "PencilIcon" src="/App/Frontend/imgs/svgs/StudyToolsDropdown.svg">
+        </div>
     </div>
     </div>
+
+    <script src="/App/Frontend/userNotes/javascript/StudyTools.js"></script>
 </body>
 </html>
