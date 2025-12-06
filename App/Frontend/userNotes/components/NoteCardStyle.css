@@ -1,0 +1,133 @@
+
+.StudyNotes {
+    width: 42vh;
+    min-height: 16vh;
+
+    background-color: var(--white);
+    margin-left: 1.5vh;
+    margin-right: 1.5vh;
+
+    flex-shrink: 0;
+    border-radius: 15px;
+    transition: 0.25s ease-in;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+    /* MAIN FIX */
+    display: flex;
+    flex-direction: column;
+    padding: 1vh;
+    box-sizing: border-box;
+}
+
+.StudyNotes:hover {
+    box-shadow: 0px 6px 12px rgba(67, 248, 188, 0.55);
+}
+
+/***************************************************
+  ROWS
+****************************************************/
+
+.row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 0.6vh;
+    box-sizing: border-box;
+}
+
+.row:last-child {
+    margin-bottom: 0;
+}
+
+/***************************************************
+  ROW 1 — Latest Update + Tags
+****************************************************/
+
+.LatestUpdate {
+    flex: 1;
+}
+
+.LatestUpdate h2 {
+    margin: 0;
+    font-size: 1.9vh;
+    font-weight: 600;
+}
+
+#recntUpdate {
+    margin-top: 0.2vh;
+    font-size: 1.7vh;
+    font-weight: 400;
+}
+
+.Tags {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.6vh;
+}
+
+.tag {
+    width: 4.5vh;
+    height: 2.5vh;
+    background-color: black;
+    border-radius: 100px;
+}
+
+/***************************************************
+  ROW 2 — Title + Version
+****************************************************/
+
+.Title {
+    flex-grow: 1;
+}
+
+.Title h1 {
+    margin: 0;
+    font-size: 2.6vh;
+    white-space: nowrap; /* No wrapping */
+}
+
+.Version h2 {
+    margin: 0 0 0 0.7vh;
+    font-size: 2vh;
+    white-space: nowrap;
+}
+
+/***************************************************
+  ROW 3 — Description + Difficulty + Streak
+****************************************************/
+
+.Description {
+    flex: 2.2;
+    display: flex;
+    align-items: center;
+}
+
+.Description p {
+    margin: 0;
+    font-size: 1.7vh;
+    line-height: 2vh;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;   /* max lines */
+    -webkit-box-orient: vertical;
+}
+
+.Difficulty,
+.Streak {
+    flex: 1;
+    text-align: center;
+}
+
+.upper {
+    font-size: 1.5vh;
+    font-weight: 600;
+}
+
+.lower {
+    font-size: 2vh;
+    font-weight: 300;
+}

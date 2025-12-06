@@ -1,12 +1,19 @@
-// const toggleStudyToolBar = document.getElementById("toggleStudyTools")
-// const StudyToolBar = document.querySelector(".StudyTools")
-// toggleStudyToolBar.addEventListener("click", () => {
-//     if(toggleStudyToolBar.style.display = "flex"){
-//          StudyToolBar.style.display = "none";
-//     }else{
-//         StudyToolBar.style.display = "flex";
-//     }
-// });
+const toggleStudyToolBar = document.getElementById("toggleStudyTools")
+const StudyToolBar = document.querySelector(".StudyTools")
+const controlsContainer = document.querySelector(".controls")
+toggleStudyToolBar.addEventListener("click", () => {
+    if(StudyToolBar.style.display === "flex"){
+         StudyToolBar.style.display = "none";
+         controlsContainer.style.height = "3.5vh"
+         toggleStudyToolBar.style.marginTop = "3.5vh"
+         toggleStudyToolBar.style.height = "3.25vh"
+    }else{
+        StudyToolBar.style.display = "flex";
+        controlsContainer.style.height = "25vh"
+        toggleStudyToolBar.style.marginTop = "0vh"
+        toggleStudyToolBar.style.height = "13%"
+    }
+});
 
 
 const thumb = document.querySelector('.thumb');

@@ -1,52 +1,75 @@
-body{
-    background-color: rgb(249, 248, 246);
+:root {
+    --light-gray: rgb(220, 220, 220);
+    --white: rgb(255, 255, 255);
+    --gray: rgb(141, 141, 141);
+    --background-color: rgb(249, 248, 246);
 }
 
-.controls{
+/* GLOBAL */
+
+body {
+    background-color: var(--background-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/***************************************************
+  OUTER CONTAINER STUFF
+****************************************************/
+
+.controls {
     position: relative;
-    width:100%;
-    /*margin-left: -8px;*/
+    width: 100%;
+    flex-direction: column;
 }
 
-.menu{
+.menu {
     width: 100%;
-    height: 25vh;
-    background-color: rgb(220, 220, 220);
+    height: 30vh;
+    background-color: var(--light-gray);
+    display: flex;
+    flex-direction: column;
+    gap: 2.5vh;
+    /* border-radius: 15px; */
+}
+
+.upperControls{
+     width: 100%;
+     height: 5vh;
+     margin-top: 2vh;
+    
+}
+
+.lowerControls{
+    width: 100%;
+    height: 19vh;
+    background-color: var(--light-gray);
     display: flex;
     flex-direction: row;
     gap: 4vh;
-    justify-content:flex-start;
+    justify-content: flex-start;
     align-items: center;
     overflow-x: auto;
     overflow-y: hidden;
-    border-radius: 15px;
+ 
 }
 
-.StudyNotes{
-   width: 42vh;
-   height: 20vh;
-   background-color: rgb(255, 255, 255);
-   margin-left: 1.5vh;
-   margin-right: 1.5vh;
-   flex-shrink: 0;
-   border-radius: 15px;
-   transition: 0.25s ease-in;
-   box-shadow: 0px 4px 10px 0px rgba(0,0,0,0.3);
-  
+.lowerControls::-webkit-scrollbar{
+    display: none;
 }
 
-.StudyNotes:hover{
-    box-shadow: 0px 6px 12px rgba(67, 248, 188, 0.55);
-}
+/***************************************************
+  TOGGLE BUTTON (unchanged)
+****************************************************/
 
-#toggleMenu{
+#toggleMenu {
     position: absolute;
     width: 85px;
     height: 13%;
-    right:50%;
-    background-color: rgb(220, 220, 220);
+    right: 50%;
+    background-color: var(--light-gray);
     z-index: 1;
     border-bottom-right-radius: 8px;
     border-bottom-left-radius: 8px;
-    
 }
