@@ -1,3 +1,5 @@
+import { ToolBehaviour } from "/App/Frontend/userNotes/javascript/StudyToolsScript.js";
+
 async function loadComponent(targetId, file) {
     const html = await fetch(file).then(res => res.text());
     document.getElementById(targetId).innerHTML = html;
@@ -14,10 +16,22 @@ async function loadComponentForAll(className, file) {
 
 loadComponent("upperControls", "/App/Frontend/userNotes/components/upperContainer.html");
 loadComponentForAll("StudyNote", "/App/Frontend/userNotes/components/NoteCard.html");
-loadComponent("studyTools", "/App/Frontend/userNotes/components/studyTools.html");
+loadComponent("studyTools", "/App/Frontend/userNotes/components/studyTools.html")
+    .then(() => {
+        ToolBehaviour();
+    });
+
+// loadComponent("studyTools", "/App/Frontend/userNotes/components/studyTools.html");
+// ToolBehaviour();
+
+// loadComponent("studyTools", "/App/Frontend/userNotes/components/studyTools.html");
+
 
 //****************************************************************************************************/
+
+    
 document.addEventListener("DOMContentLoaded", () => {
+    ToolBehaviour();
 
     const studyNotes = document.getElementById("studyNoteSection");
     const studyTools = document.getElementById("studyToolsSection");
@@ -62,5 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         hideAll();
         extraTools.style.display = "flex";
     });
+    
+    
 
 });

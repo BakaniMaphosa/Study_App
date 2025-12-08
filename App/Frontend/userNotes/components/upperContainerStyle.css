@@ -118,6 +118,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+   
 }
 
 .sortContainer {
@@ -147,4 +148,45 @@
 #Sort{
     width:100%;
     height:100%;
+}
+
+/***************** Add Button ****************/
+.addButton{
+    width:50%;
+    height:100%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    /* margin-left: 400px; */
+}
+
+.addContainer {
+    width: 10vh;
+    height: 100%;
+    /* background-color: rgb(167, 166, 166); */
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+
+
+#Add {
+    width:100%;
+    height:100%;
+
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#Add:hover {
+    transform: scale(1.12); /* slightly bigger since it's small */
+}
+
+#Add:active {
+    transform: scale(0.95);
 }
