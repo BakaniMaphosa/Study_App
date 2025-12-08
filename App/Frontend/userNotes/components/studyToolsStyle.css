@@ -1,0 +1,167 @@
+:root {
+    --light-gray: rgb(220, 220, 220);
+    --white: rgb(255, 255, 255);
+    --gray: rgb(141, 141, 141);
+    --background-color: rgb(249, 248, 246);
+}
+
+/* GLOBAL */
+
+
+/***************************************************
+  OUTER CONTAINER STUFF
+****************************************************/
+
+.container {
+    position: relative;
+    width: 183vh;
+    height: 30vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+    background-color: var(--light-gray);
+    font-family: "DynaPuff", system-ui;
+}
+
+/***************************************************
+  STUDY TOOLS CONTAINER
+****************************************************/
+
+.StudyTools {
+    width: 100%;
+    height: 25vh;
+    background-color: var(--gray);
+    display: flex;
+    flex-direction: row;
+    gap: 0.5vh;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    border-radius: 15px;
+   
+}
+
+#toggleStudyTools {
+    position: absolute;
+    width: 105px;
+    height: 13%;
+    right: 38.5%;
+    background-color: rgb(220, 220, 220);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 0.1vh;
+   
+
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-top: none;
+}
+
+#StudyToolsDropdown {
+    font-size: 14px;
+    margin-left: 0.1vh;
+}
+
+#PencilIcon {
+    height: 23px;
+    width: 23px;
+}
+
+/***************************************************
+  TOOLS COLUMNS + ITEMS
+****************************************************/
+
+.tools {
+    position: relative;
+    width: 32.5%;
+    height: 95%;
+    background-color: white;
+    border-right: 0.1px solid rgb(136, 136, 136);
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+    gap: 0.7vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.tool {
+    width: 90%;
+    height: 11.5%;
+    background-color: white;
+    font-size: 22px;
+    margin-top: 1%;
+    margin-left: 4%;
+    display: flex;
+    flex-direction: row;
+}
+
+.ToolName {
+    width: 70%;
+    height: 100%;
+}
+
+.ToolQuickAction {
+    width: 30%;
+    height: 100%;
+}
+
+/***************************************************
+  ALIGN SLIDER
+****************************************************/
+
+.threeSlider {
+    position: relative;
+    width: 20vh;
+    height: 3vh;
+    background: #eee;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1vh;
+    margin-left: -40px;
+}
+
+.option {
+    width: 33%;
+    text-align: center;
+    z-index: 2;
+   
+    font-size: 12px;
+}
+
+.thumb {
+    position: absolute;
+    width: 33%;
+    height: 100%;
+    background: white;
+    border-radius: 999px;
+    left: 0;
+    transition: 0.2s;
+}
+
+/***************************************************
+  NUMBER CONTROLS
+****************************************************/
+
+.numberControl {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+}
+
+#increase,
+#decrease {
+    border: none;
+    font-size: 20px;
+}
+
+#numInput {
+    height: 20px;
+}

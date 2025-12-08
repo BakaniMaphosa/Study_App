@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/App/Frontend/userNotes/css/NoteCarousal.css">
+    <link rel="stylesheet" href="/App/Frontend/userNotes/css/NavBar.css">
     <title>Document</title>
 </head>
 
@@ -12,16 +12,21 @@
      <div class="controls">
         <!-- <div id="upperControls"></div> -->
         <div class="menu">
-            <div id="upperControls"></div>
-            <div class="lowerControls">
+            <div id="studyNoteSection">
+              <div id="upperControls"></div>
+              <div class="lowerControls">
 
-            <div class="StudyNote"></div>
-            <div class="StudyNote"></div>
-            <div class="StudyNote"></div>
-            <div class="StudyNote"></div>
-
+              <div class="StudyNote"></div>
+              <div class="StudyNote"></div>
+              <div class="StudyNote"></div>
+              <div class="StudyNote"></div>
             </div>
-        </div> <!-- .menu -->
+            
+          </div>
+          <div id="studyToolsSection">
+                <div id="studyTools"></div>
+          </div>
+        </div>    <!-- .menu -->
         
         <!--NAVBAR TABS-->
         <div id="toggleMenu">
@@ -45,7 +50,6 @@
                   </div>
          </div>
 
- 
        <div id="toggleExtra">
                   <div id="ExtraToolsDropdown" aria-label="Extra Tools Dropdown"><h4>Extra Tools</h4></div>
                   <div id="ExtraIcon" aria-label="Extra Tools Icon">
@@ -55,9 +59,8 @@
 
 
     </div> <!-- .controls -->
-    <script src ="/App/Frontend/userNotes/components/testingInjection.js"></script>
+    <script src ="/App/Frontend/userNotes/javascript/injectNComponents.js"></script>
 </body>
-
 </html>
 
 

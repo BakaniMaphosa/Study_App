@@ -1,0 +1,114 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/App/Frontend/userNotes/components/studyToolsStyle.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+            <div class="tools">
+                <div class="tool">
+                    <div class="ToolName" id="BoldenText">Bold</div>
+                </div>
+                <div class="tool">
+                    <div class="ToolName" id="ItalicText">Italics</div>
+                </div>
+                <div class="tool">
+                    <div class="ToolName" id="UnderlineText">Underline</div>
+                </div>
+                <div class="tool">
+                    <div class="ToolName" id="HighlightText">Highlight</div>
+                    <div class="ToolQuickAction" id="HighlightQuckAction">
+                        <input type="color" id="colorPicker">
+                    </div>
+                </div>
+                <div class="tool">
+                    <div class="ToolName" id="Font-Size">Font-size</div>
+                    <div class="ToolQuickAction" id="Font-SizeQuickAction">
+                        <div class="numberControl">
+                            <button class="numBtn" id="decrease">−</button>
+                            <input type="number" id="numInput" value="17" min="1" max="200">
+                            <button class="numBtn" id="increase">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tool">
+                    <div class="ToolName" id="Font-family">Font-family</div>
+                    <div class="ToolQuickAction" id="Font-FamilyQuickAction">QA</div>
+                </div>
+            </div>
+
+            <div class="tools">
+                <div class="tool">
+                    <div class="ToolName" id="ForegroundText">Foreground</div>
+                    <div class="ToolQuickAction" id="ForegroundQuckAction">
+                        <input type="color" id="colorPicker">
+                    </div>
+                </div>
+                <div class="tool">
+                    <div class="ToolName" id="HeaderText">Header</div>
+                    <div class="ToolQuickAction" id="HeaderQuckAction">
+                        <div class="numberControl">
+                            <button class="numBtn" id="decrease">−</button>
+                            <input type="number" id="numInput" value="1" min="1" max="6">
+                            <button class="numBtn" id="increase">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool">
+                    <div class="ToolName">Checkbox list</div>
+                </div>
+                <div class="tool">
+                    <div class="ToolName">Numbered list</div>
+                </div>
+
+                <div class="tool">
+                    <div class="ToolName" id="AlignText">Align-text</div>
+                    <div class="ToolQuickAction" id="AlignTextQuckAction">
+                        <div class="threeSlider">
+                            <div class="thumb"></div>
+                            <div class="option" data-align="left">Left</div>
+                            <div class="option" data-align="center">Center</div>
+                            <div class="option" data-align="right">Right</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tool">
+                    <div class="ToolName">Block-divider</div>
+                </div>
+            </div>
+
+            <div class="tools">
+                <div class="tool">
+                    <div class="ToolName" id="InsertImage">Insert image</div>
+                    <div class="ToolQuickAction" id="InsertImageIcon">></div>
+                </div>
+                <div class="tool">
+                    <div class="ToolName" id="InsertTable">Insert table</div>
+                    <div class="ToolQuickAction" id="InsertTablesIcon">></div>
+                </div>
+                <div class="tool">
+                    <div class="ToolName" id="InsertGraph">Insert graph</div>
+                    <div class="ToolQuickAction" id="InsertGraphIcon">></div>
+                </div>
+                <div class="tool">
+                    <div class="ToolName" id="InsertGraph">Insert link</div>
+                    <div class="ToolQuickAction" id="InsertLinkIcon">></div>
+                </div>
+            </div>
+        
+    </div>
+
+    <script src = "/App/Frontend/userNotes/components/studyToolsScript.js"></script>
+</body>
+
+</html>
