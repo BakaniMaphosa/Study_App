@@ -1,19 +1,15 @@
-body{
-    font-family: 'Inter', Arial, sans-serif;
-}
 
+
+/**********************************************************************************/
+/***************************** ADD CONTAINER.  ************************************/
+/**********************************************************************************/
 h4{
     margin: 0;
     padding: 0;
 }
 
-/**********************************************************************************/
-/***************************** ADD CONTAINER.  ************************************/
-/**********************************************************************************/
-
-
 #createNoteContainer{
-    width:400px;
+    width:420px;
     height:200px; 
     background-color: #f4f4f4;
     display: flex;
@@ -24,7 +20,10 @@ h4{
     z-index: 1;
     box-shadow: 0px 8px 25px rgba(0,0,0,0.12);
     border: 1px solid #e5e5e5;
+    font-family: 'Inter', Arial, sans-serif;
 }
+
+
 
 #titleBox{
     width: 100%;
@@ -94,7 +93,7 @@ h4{
 #lowerRow{
   display: flex;
   flex-direction: row;
-  gap:2vh;
+  gap:1vh;
  }
 /******************************DIFFICULTY ************************/
 #difficultyContainer{
@@ -151,7 +150,7 @@ h4{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap:3px;
+    gap:2px;
 }
  #tagTitle{
     width: 100%;
@@ -194,7 +193,7 @@ h4{
    position:absolute;
    z-index: 2;
    right:40%;
-   bottom: -15%;
+   bottom: -13%;
    border-bottom-left-radius: 1rem;
    border-bottom-right-radius: 1rem;
    display: flex;
@@ -205,7 +204,7 @@ h4{
 
 #createButton{
     width:100%;
-    height:100%;
+    height:90%;
     border: none;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;

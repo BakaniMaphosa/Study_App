@@ -3,21 +3,58 @@ async function loadComponent(targetId, file) {
     document.getElementById(targetId).innerHTML = html;
 }
 
-export function upperContainerLogic(){
-    const addBtn = document.getElementById("Add");
+export function upperContainerLogic() {
+    const addButton = document.getElementById("Add");
     const popup = document.getElementById("pop");
 
-    if (!addBtn || !popup) {
-        console.error("upperContainerLogic: Required elements not found");
-        return;
+    let hoverActive = false;
+    let hideTimeout = null;
+
+    // Show popup
+    async function showPopup() {
+        clearTimeout(hideTimeout);
+
+        if (popup.innerHTML.trim() === "") {
+            await loadComponent("pop", "/App/Frontend/userNotes/components/addNote.html");
+        }
+
+        popup.style.display = "block";
+
+        requestAnimationFrame(() => {
+            popup.classList.add("visible");
+        });
     }
 
-    addBtn.addEventListener("click", async () => {
-        await loadComponent("pop", "/App/Frontend/userNotes/components/addNote.html");
+    // Hide popup
+    function hidePopup() {
+        hideTimeout = setTimeout(() => {
+            if (!hoverActive) {
+                popup.classList.remove("visible");
 
-        popup.style.display = 
-            popup.style.display === "none" || popup.style.display === "" 
-            ? "block" 
-            : "none";
+                setTimeout(() => {
+                    if (!hoverActive) popup.style.display = "none";
+                }, 250);
+            }
+        }, 100);
+    }
+
+    // HOVER EVENTS (THE MISSING PART 🔥🔥🔥)
+    addButton.addEventListener("mouseenter", () => {
+        hoverActive = true;
+        showPopup();
+    });
+
+    addButton.addEventListener("mouseleave", () => {
+        hoverActive = false;
+        hidePopup();
+    });
+
+    popup.addEventListener("mouseenter", () => {
+        hoverActive = true;
+    });
+
+    popup.addEventListener("mouseleave", () => {
+        hoverActive = false;
+        hidePopup();
     });
 }
