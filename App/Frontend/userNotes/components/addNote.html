@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/App/Frontend/userNotes/components/addNote.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="createNoteContainer">
+        <div id="titleBox">
+             <h4 id = "noteTitle">Note Title</h4>
+             <input id = "titleInput" type="text">
+        </div>
+
+
+        <div id="descriptionBox">
+            <h4 id = "noteDescriptionTitle">Note Description</h4>
+            <textarea id="DescriptionInput" placeholder="Write your note description here(optional)..." rows="5" cols="40"></textarea>
+        </div>
+        <div id="lowerRow">
+           <div id="difficultyContainer">
+             <div id="difficultytitle">
+                <h4>Difficulty</h4>
+             </div>
+             <div id="difficulty">              
+                    <div id="diffiucltyLevel">
+                        <div class="numberControl">
+                            <button class="numBtn" id="decrease">−</button>
+                            <input type="number" id="numInput" value="1" min="1" max="5">
+                            <button class="numBtn" id="increase">+</button>
+                        </div>
+                    </div> 
+             </div>
+           </div>
+           <div id="tagsblock">
+               <div id="tagTitle">
+                 <h4>Note Tags</h4>
+               </div>
+               <div id="tags">
+                  <div class="createNotetag">
+                    <input placeholder="e.g Science"class = "tagInput" type="text">
+                  </div>
+                  <div class="createNotetag">
+                    <input placeholder="e.g Maths" class = "tagInput" type="text">
+                  </div>
+                  <div class="createNotetag">
+                    <input placeholder="e.g History" class = "tagInput" type="text">
+                  </div>
+               </div>
+           </div>
+            
+        </div>
+        <div id="createNote">
+           <button id="createButton">Save</button>
+        </div>
+    </div>
+
+     <div id="organiseContainer">
+         <div id="sortByDate"></div>
+         <div id="sortBySize"></div>
+         <div id="sortByDifficulty"></div>
+         <div id="sortByStreak"></div>
+     </div>
+
+</body>
+</html>

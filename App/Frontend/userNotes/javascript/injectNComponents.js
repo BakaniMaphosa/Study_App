@@ -1,4 +1,5 @@
 import { ToolBehaviour } from "/App/Frontend/userNotes/javascript/StudyToolsScript.js";
+import { upperContainerLogic } from "/App/Frontend/userNotes/javascript/upperContainerLogic.js";
 
 async function loadComponent(targetId, file) {
     const html = await fetch(file).then(res => res.text());
@@ -14,24 +15,25 @@ async function loadComponentForAll(className, file) {
 }
 
 
-loadComponent("upperControls", "/App/Frontend/userNotes/components/upperContainer.html");
+loadComponent("upperControls", "/App/Frontend/userNotes/components/upperContainer.html")
+    .then(() => {
+        // wait for DOM to update completely
+        requestAnimationFrame(() => {
+            upperContainerLogic();
+        });
+    });
 loadComponentForAll("StudyNote", "/App/Frontend/userNotes/components/NoteCard.html");
 loadComponent("studyTools", "/App/Frontend/userNotes/components/studyTools.html")
     .then(() => {
         ToolBehaviour();
     });
 
-// loadComponent("studyTools", "/App/Frontend/userNotes/components/studyTools.html");
-// ToolBehaviour();
-
-// loadComponent("studyTools", "/App/Frontend/userNotes/components/studyTools.html");
-
 
 //****************************************************************************************************/
 
     
 document.addEventListener("DOMContentLoaded", () => {
-    ToolBehaviour();
+    
 
     const studyNotes = document.getElementById("studyNoteSection");
     const studyTools = document.getElementById("studyToolsSection");

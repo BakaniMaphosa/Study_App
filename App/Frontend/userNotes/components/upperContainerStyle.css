@@ -1,46 +1,30 @@
+#upperControls {
+    width: 100%;
+    height: 5vh;
 
-.upperControls{
-    width:100%;
-    height:5vh;
-    
     display: flex;
     flex-direction: row;
+    margin-top: 6px;;
 }
 
-.goBack{
-    width:20%;
-    height:100%;
-    
+/* ================= Go Back ================ */
+
+#goBack {
+    width: 20%;
+    height: 100%;
 }
 
-.searchBox{
-    width:60%;
-    height:100%;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
+/********* Return Button ***************/
+#returnButton {
+    width: 50%;
+    height: 100%;
 
-.organise{
-    width:20%;
-    height:100%;
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-}
-/***************** Return Button ***************/
-.returnButton{
-    width:50%;
-    height:100%;
-    
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
 
-.returnButtonContainer {
+#returnButtonContainer {
     width: 8vh;
     display: flex;
     justify-content: center;
@@ -48,56 +32,61 @@
     background-color: rgb(167, 166, 166);
     border-radius: 5px;
 
-    /* Smooth animation */
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.returnButtonContainer:hover {
-    transform: scale(1.08); /* grows slightly */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* subtle shadow */
+#returnButtonContainer:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
-
-#returnArrow{
-    width:30%;
-    height:30%;
+#ReturnArrow {
+    width: 50%;
+    height: 80%;
 }
 
-/**********Search Bar *****************/
-/* Search Bar Container */
-.search-container {
+/* ================= Search Box ================ */
+
+#searchBox {
+    width: 60%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+#searchContainer {
     width: 90%;
     height: 5vh;
     background-color: white;
     border-radius: 12px;
+
     display: flex;
     align-items: center;
     padding: 0 1vh;
     gap: 1vh;
+
     box-shadow: 0 3px 8px rgba(0,0,0,0.1);
     transition: 0.25s ease;
     border: 1px solid rgb(230, 230, 230);
 }
 
-/* Hover + Focus glow */
-.search-container:hover,
-.search-container:focus-within {
+#searchContainer:hover,
+#searchContainer:focus-within {
     box-shadow: 0 4px 12px rgba(67, 248, 188, 0.5);
     border-color: rgb(67, 248, 188);
 }
 
-/* Icon placeholder */
-.search-icon {
+#searchIcon {
     width: 2.6vh;
     height: 2.6vh;
-      /* replace with real icon */
     border-radius: 50%;
 }
 
-/* Input Field */
-.search-input {
+#searchInput {
     width: 100%;
     height: 100%;
+
     border: none;
     outline: none;
     font-size: 2vh;
@@ -105,23 +94,30 @@
     background: none;
 }
 
-#mg-glass{
+#mgGlass {
     width: 100%;
     height: 100%;
 }
 
-/************** Organise Button **************/
-.organiseButton{
-    width:50%;
-    height:100%;
-    
+/* ================= Organise Button ================ */
+
+#organise {
+    width: 20%;
+    height: 100%;
+
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-   
+    justify-content: end;
 }
 
-.sortContainer {
+#organiseButton {
+    width: 50%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+}
+
+#sortContainer {
     width: 5vh;
     height: 100%;
     background-color: rgb(167, 166, 166);
@@ -131,62 +127,69 @@
     justify-content: center;
     align-items: center;
 
-    /* smooth animation */
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
-.sortContainer:hover {
-    transform: scale(1.12); /* slightly bigger since it's small */
+#sortContainer:hover {
+    transform: scale(1.12);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
 }
 
-.sortContainer:active {
+#sortContainer:active {
     transform: scale(0.95);
 }
 
-
-#Sort{
-    width:100%;
-    height:100%;
+#Sort {
+    width: 100%;
+    height: 100%;
 }
 
-/***************** Add Button ****************/
-.addButton{
-    width:50%;
-    height:100%;
-    
+/* ================= Add Button ================ */
+
+#add {
+    width: 20%;
+    height: 100%;
+}
+
+#addButton {
+    width: 50%;
+    height: 100%;
+
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    
-    /* margin-left: 400px; */
 }
 
-.addContainer {
+#addContainer {
     width: 10vh;
     height: 100%;
-    /* background-color: rgb(167, 166, 166); */
     border-radius: 5px;
 
     display: flex;
     justify-content: center;
     align-items: center;
-
-  }
-
-
+}
 
 #Add {
-    width:100%;
-    height:100%;
-
+    width: 100%;
+    height: 100%;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 #Add:hover {
-    transform: scale(1.12); /* slightly bigger since it's small */
+    transform: scale(1.12);
 }
 
 #Add:active {
     transform: scale(0.95);
+}
+
+/* Popup placeholder */
+#pop {
+    width:300px;
+    height:200px;
+    z-index: 300;
+    position: absolute;
+    margin-left: 120vh;
+    display: none;
+   
 }
