@@ -198,7 +198,7 @@
     transition: opacity 0.25s ease, transform 0.25s ease;
 
     z-index: 300;
-    margin-left: 120vh;
+    margin-left: 105vh;
 }
 
 /* When visible */
@@ -207,6 +207,8 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+/* When visible */
 
 
 
