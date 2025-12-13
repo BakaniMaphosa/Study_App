@@ -1,1 +1,0 @@
-#allow for deleting one or multiple notes, dependending on if the selectMany, var is true or not
