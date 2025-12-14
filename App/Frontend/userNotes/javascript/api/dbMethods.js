@@ -1,4 +1,4 @@
-async function sendNote(Title,Description,Difficulty,NoteTags,NoteContent) {
+export async function sendNote(Title,Description,Difficulty,NoteTags,NoteContent) {
   const response = await fetch("http://127.0.0.1:5000/api/notes", {
     method: "POST",
     headers: {
@@ -25,7 +25,7 @@ async function sendNote(Title,Description,Difficulty,NoteTags,NoteContent) {
 }
 
 
-async function getNotes() {
+export async function getNotes() {
   const response = await fetch("http://127.0.0.1:5000/api/notes");
 
   console.log("Response status:", response.status);
@@ -36,6 +36,5 @@ async function getNotes() {
   return notes.length;
 }
 
-console.log(getNotes())
 
 

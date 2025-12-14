@@ -1,5 +1,6 @@
 import { ToolBehaviour } from "/App/Frontend/userNotes/javascript/StudyToolsScript.js";
 import { upperContainerLogic } from "/App/Frontend/userNotes/javascript/upperContainerLogic.js";
+import {getNotes} from "/App/Frontend/userNotes/javascript/api/dbMethods.js"
 
 async function loadComponent(targetId, file) {
     const html = await fetch(file).then(res => res.text());
@@ -22,6 +23,15 @@ loadComponent("upperControls", "/App/Frontend/userNotes/components/upperContaine
             upperContainerLogic();
         });
     });
+
+const UserNotes =await getNotes();
+const NoteCount = UserNotes.length;
+for(let i = 0 ; i < NoteCount ; i++){
+    const noteDiv = document.createElement("div");
+    noteDiv.classList.add("StudyNote");
+    container.appendChild(noteDiv);
+}
+
 loadComponentForAll("StudyNote", "/App/Frontend/userNotes/components/NoteCard.html");
 loadComponent("studyTools", "/App/Frontend/userNotes/components/studyTools.html")
     .then(() => {

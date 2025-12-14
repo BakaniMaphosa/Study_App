@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask_cors import CORS  # ADD THIS
 from models import db
 from routes.notes import notes_bp
 
@@ -7,17 +8,16 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 INSTANCE_DIR = os.path.join(BASE_DIR, "instance")
 
 def create_app():
-    # Explicitly tell Flask where the instance folder is
     app = Flask(
         __name__,
         instance_path=INSTANCE_DIR,
         instance_relative_config=True
     )
+    
+    CORS(app)  # ADD THIS LINE - enables CORS for all routes
 
-    # Ensure the instance folder exists
     os.makedirs(app.instance_path, exist_ok=True)
 
-    # Explicit database location
     app.config["SQLALCHEMY_DATABASE_URI"] = (
         "sqlite:///" + os.path.join(app.instance_path, "app.db")
     )
@@ -29,7 +29,6 @@ def create_app():
         db.create_all()
 
     app.register_blueprint(notes_bp, url_prefix="/api/notes")
-
 
     return app
 
