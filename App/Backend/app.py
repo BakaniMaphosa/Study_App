@@ -30,6 +30,7 @@ def create_app():
 
     app.register_blueprint(notes_bp, url_prefix="/api/notes")
 
+
     return app
 
 

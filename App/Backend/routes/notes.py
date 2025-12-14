@@ -7,10 +7,10 @@ notes_bp = Blueprint("notes", __name__)
 @notes_bp.route("/", methods=["GET"])
 def get_notes():
     notes = StudyNote.query.all()
-
+    print("NOTES FOUND:", len(notes))
     return jsonify([
         {
-            "NoteID": n.NoteID,
+            "NoteID": n.NoteID,  
             "Title": n.Title,
             "Description": n.Description,
             "Difficulty": n.Difficulty,
