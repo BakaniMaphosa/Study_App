@@ -1,6 +1,6 @@
 import { ToolBehaviour } from "/App/Frontend/userNotes/javascript/StudyToolsScript.js";
 import { upperContainerLogic } from "/App/Frontend/userNotes/javascript/upperContainerLogic.js";
-import {getNotes} from "/App/Frontend/userNotes/javascript/api/dbMethods.js"
+import { getNotes } from "/App/Frontend/userNotes/javascript/api/dbMethods.js"
 
 async function loadComponent(targetId, file) {
     const html = await fetch(file).then(res => res.text());
@@ -15,36 +15,37 @@ async function loadComponentForAll(className, file) {
     });
 }
 
-
-loadComponent("upperControls", "/App/Frontend/userNotes/components/upperContainer.html")
-    .then(() => {
-        // wait for DOM to update completely
-        requestAnimationFrame(() => {
-            upperContainerLogic();
-        });
+// Wrap everything in DOMContentLoaded and make it async
+document.addEventListener("DOMContentLoaded", async () => {
+    
+    // Load upper controls first
+    await loadComponent("upperControls", "/App/Frontend/userNotes/components/upperContainer.html");
+    requestAnimationFrame(() => {
+        upperContainerLogic();
     });
 
-const UserNotes =await getNotes();
-const NoteCount = UserNotes.length;
-for(let i = 0 ; i < NoteCount ; i++){
-    const noteDiv = document.createElement("div");
-    noteDiv.classList.add("StudyNote");
-    container.appendChild(noteDiv);
-}
-
-loadComponentForAll("StudyNote", "/App/Frontend/userNotes/components/NoteCard.html");
-loadComponent("studyTools", "/App/Frontend/userNotes/components/studyTools.html")
-    .then(() => {
-        ToolBehaviour();
-    });
-
-
-//****************************************************************************************************/
-
+    // Get note count from backend
+    const StudyNote = await getNotes(); // This already returns the length (a number)
+    const NoteCount = StudyNote.length;
+    // Find the container where notes should be added
+    const container = document.querySelector(".lowerControls"); // ✅ Define container!
     
-document.addEventListener("DOMContentLoaded", () => {
-    
+    // Create note divs dynamically
+    for(let i = 0; i < NoteCount; i++){
+        const noteDiv = document.createElement("div");
+        noteDiv.classList.add("StudyNote");
+        container.appendChild(noteDiv);
+    }
 
+
+    // Load note card HTML into all StudyNote divs
+    await loadComponentForAll("StudyNote", "/App/Frontend/userNotes/components/NoteCard.html");
+    
+    // Load study tools
+    await loadComponent("studyTools", "/App/Frontend/userNotes/components/studyTools.html");
+    ToolBehaviour();
+
+    // Tab switching logic
     const studyNotes = document.getElementById("studyNoteSection");
     const studyTools = document.getElementById("studyToolsSection");
     const aiTools = document.getElementById("AIToolsSection");
@@ -65,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // LOAD-IN DEFAULT TAB → Study Notes
     hideAll();
-    studyNotes.style.display = "flex";     // or block depending on your layout
+    studyNotes.style.display = "flex";
     console.log("Loaded into Study Notes tab");
 
     // CLICK HANDLERS
@@ -88,7 +89,4 @@ document.addEventListener("DOMContentLoaded", () => {
         hideAll();
         extraTools.style.display = "flex";
     });
-    
-    
-
 });

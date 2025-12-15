@@ -15,6 +15,7 @@ def create_app():
     )
     
     CORS(app)  # ADD THIS LINE - enables CORS for all routes
+    print("✅ CORS enabled!") 
 
     os.makedirs(app.instance_path, exist_ok=True)
 
