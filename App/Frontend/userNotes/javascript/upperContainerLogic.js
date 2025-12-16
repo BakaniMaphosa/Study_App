@@ -1,3 +1,5 @@
+import {sendNote} from "/App/Frontend/userNotes/javascript/api/dbMethods.js"
+
 // ================= COMPONENT LOADER =================
 async function loadComponent(targetId, file) {
     const res = await fetch(file);
@@ -48,6 +50,43 @@ function sortLogic() {
     });
 }
 
+function createNote() {
+    const createNoteButton = document.getElementById("createButton");
+    console.log("check 1");
+    if (!createNoteButton) return;
+    console.log("check 2");
+
+    createNoteButton.addEventListener("click", async () => {
+
+        const Title = document.getElementById("titleInput").value;
+        if (!Title.trim()) {
+            alert("Title cannot be empty");
+            return;
+        }
+
+        const Description = document.getElementById("DescriptionInput").value;
+        const difficulty = Number(document.getElementById("numInput").value);
+        const NoteTagsSeparate = document.querySelectorAll(".tagInput");
+        const NoteTagsJoined = [...NoteTagsSeparate]
+            .map(tag => tag.value.trim())
+            .filter(Boolean)
+            .join(",");
+
+
+        const NoteContent = "Ready When You Are...";
+
+        await sendNote(Title, Description, difficulty, NoteTagsJoined, NoteContent);
+
+        document.getElementById("titleInput").value = "";
+        document.getElementById("DescriptionInput").value = "";
+        document.getElementById("numInput").value = 0;
+        NoteTagsSeparate.forEach(tag => tag.value = "");
+
+
+        //get all components inputs and outputs
+    })
+}
+
 // ================= MAIN LOGIC =================
 export function upperContainerLogic() {
     const addButton = document.getElementById("Add");
@@ -91,27 +130,29 @@ export function upperContainerLogic() {
 
         showPopup();
 
-        // only reload if different content
         if (currentComponent !== componentPath) {
             currentComponent = componentPath;
             popup.innerHTML = `<div style="padding:12px">Loading…</div>`;
 
             await loadComponent("pop", componentPath);
 
-            // if user left while loading
             if (!hoverActive) {
                 closePopup();
                 return;
             }
 
+            // ✅ THIS IS THE KEY
             if (afterLoad) afterLoad();
         }
     }
 
-    /* ================= ADD (hover) ================= */
+    /* ================= ADD ================= */
 
     addButton.addEventListener("mouseenter", () => {
-        openPopup("/App/Frontend/userNotes/components/addNote.html");
+        openPopup(
+            "/App/Frontend/userNotes/components/addNote.html",
+            createNote // ✅ runs AFTER HTML exists
+        );
     });
 
     addButton.addEventListener("mouseleave", () => {
@@ -119,7 +160,7 @@ export function upperContainerLogic() {
         scheduleHide();
     });
 
-    /* ================= SORT / ORGANISE (hover) ================= */
+    /* ================= SORT ================= */
 
     sortButton.addEventListener("mouseenter", () => {
         openPopup("/App/Frontend/userNotes/components/Organise.html", sortLogic);
@@ -129,8 +170,6 @@ export function upperContainerLogic() {
         hoverActive = false;
         scheduleHide();
     });
-
-    /* ================= POPUP ITSELF ================= */
 
     popup.addEventListener("mouseenter", () => {
         hoverActive = true;
