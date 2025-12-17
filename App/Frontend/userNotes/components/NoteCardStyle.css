@@ -1,7 +1,7 @@
 
 .StudyNotes {
     width: 42vh;
-    min-height: 16vh;
+    min-height: 17vh;
 
     background-color: var(--white);
     margin-left: 1.5vh;
@@ -69,10 +69,22 @@
 }
 
 .tag {
-    width: 4.5vh;
+    padding: 0 1vh;              /* spacing instead of width */
     height: 2.5vh;
-    background-color: black;
     border-radius: 100px;
+    
+    border: 2px solid black;
+
+    display: flex;
+    align-items: center;         /* vertical centering */
+    justify-content: center;     /* horizontal centering */
+}
+
+
+.tag h5 {
+    margin: 0;                   
+    font-size: 1.5vh;
+    font-weight: 500;
 }
 
 /***************************************************
