@@ -17,7 +17,7 @@ async function loadComponentForAll(className, file) {
 
 // Wrap everything in DOMContentLoaded and make it async
 document.addEventListener("DOMContentLoaded", async () => {
-    
+
     // Load upper controls first
     await loadComponent("upperControls", "/App/Frontend/userNotes/components/upperContainer.html");
     requestAnimationFrame(() => {
@@ -29,18 +29,43 @@ document.addEventListener("DOMContentLoaded", async () => {
     const NoteCount = StudyNote.length;
     // Find the container where notes should be added
     const container = document.querySelector(".lowerControls"); // ✅ Define container!
-    
+
     // Create note divs dynamically
-    for(let i = 0; i < NoteCount; i++){
+    for (let i = 0; i < NoteCount; i++) {
         const noteDiv = document.createElement("div");
         noteDiv.classList.add("StudyNote");
+
         container.appendChild(noteDiv);
     }
 
 
     // Load note card HTML into all StudyNote divs
     await loadComponentForAll("StudyNote", "/App/Frontend/userNotes/components/NoteCard.html");
-    
+
+    //we need to find a way to load the data in over here(after we loaded into "studynote")
+    [...container.children].forEach((card, index) => {
+    const note = StudyNote[index];
+
+    card.querySelector("#TitleText").textContent = note.Title;
+    card.querySelector("#DescriptionText").textContent = note.Description;
+    card.querySelector("#VersionText").textContent = `v${note.Version}`;
+    card.querySelector("#diffText").textContent = `${note.Difficulty} / 5`;
+
+    // Tags example
+    const tagsContainer = card.querySelector(".Tags");
+    tagsContainer.innerHTML = ""; // clear template tags
+
+    note.NoteTags.split(",").forEach(tag => {
+        if (!tag.trim()) return;
+
+        const tagEl = document.createElement("div");
+        tagEl.className = "tag";
+        tagEl.textContent = tag.trim();
+        tagsContainer.appendChild(tagEl);
+    });
+});
+
+
     // Load study tools
     await loadComponent("studyTools", "/App/Frontend/userNotes/components/studyTools.html");
     ToolBehaviour();
